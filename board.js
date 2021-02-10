@@ -6,19 +6,35 @@ class Board {
     this.numRows = numRows;
     this.numCols = numCols;
     this.numShips = numShips;
+    this.grid = this.populateGrid(numRows, numCols, numShips);
     this.turns = 0;
+    this.counter = 0;
   }
-
   populateGrid() {
     // TODO: Using the instance variables numRows, numCols, and numShips, return
     // a 2D array representing the state of the board.
-    this.grid = [];
+    let grid = [];
     for (let i = 0; i < this.numRows; i++) {
+      let row = [];
       for (let j = 0; j < this.numCols; j++) {
-        this.grid.push([i, j]);
+        row.push(null);
+      }
+      grid.push(row);
+    }
+
+    placeShips() {
+
+      for (let i = 0; i < this.numShips; i++) {
+        let randomRow = Math.floor(Math.random() * Math.floor(this.numRows));
+        let randomCol = Math.floor(Math.random() * Math.floor(this.numCols));
+        if (grid[randomRow][randomCol] !== 's') {
+          grid[randomRow][randomCol] = 's';
+        } else {
+          placeShips()
+        }
       }
     }
-    return this.grid;
+    return grid;
   }
 
   display() {
@@ -65,5 +81,6 @@ class Board {
     // space or a damaged ship.
   }
 }
-
+let board1 = new Board(5, 6, 5);
+console.log(board1);
 module.exports = Board;
