@@ -49,8 +49,16 @@ class Board {
     // TODO: Return true if the game is over (when all ships are hit).
   }
 
-  attack() {
-    if (this.grid)
+  attack(coords) {
+    this.grid.forEach((ele) => {
+      if (ele == coords) {
+        if (ele === "s") {
+          this.grid.splice(this.grid.indexOf(ele), 1, "h");
+        } else {
+          this.grid.splice(this.grid.indexOf(ele), 1, "x");
+        }
+      }
+    })
     // TODO: Take in an attack position in the form of an array, [row, col], as
     // a parameter. Update this.grid depending on if the position is an empty
     // space or a damaged ship.
