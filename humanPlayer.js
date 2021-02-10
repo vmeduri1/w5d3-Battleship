@@ -3,6 +3,13 @@ class HumanPlayer {
     // TODO: Create a new readline interface and store is as an instance
     // variable (this.rl). Remember to require the built-in node module,
     // 'readline'
+    const readline = require("readline");
+
+    const rl = readline.createInterface(process.stdin, process.stdout);
+
+    rl.question("Whatever prompt you want to ask the user", (answer) => {
+      
+    });
   }
 
   getMove() {
