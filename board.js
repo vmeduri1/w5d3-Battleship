@@ -6,6 +6,7 @@ class Board {
     this.numRows = numRows;
     this.numCols = numCols;
     this.numShips = numShips;
+    this.turns = 0;
   }
 
   populateGrid() {
@@ -33,7 +34,7 @@ class Board {
   }
 
   isValidMove(pos) {
-    if ((pos[0] >= 0 && pos[0] <= this.numRows) && (pos[1] >= 0 && pos[1] <= this.numCols)){
+    if ((pos[0] >= 0 && pos[0] <= this.numRows) && (pos[1] >= 0 && pos[1] <= this.numCols)) {
       return true;
     } else {
       return false;

@@ -1,5 +1,8 @@
+const Board = require("./board");
+
 class BattleshipGame {
   constructor() {
+
     // TODO: Set up constructor to store reference to the humanPlayer and
     // instantiate a new instance of the Board class and set it to this.board.
     // Remember to import your Board class.
@@ -13,8 +16,12 @@ class BattleshipGame {
     // TODO: Display the current state of the game to the player.
   }
 
-  processMove() {
-    
+  processMove(coords, hits, ) {
+    if (move.isValid()){
+      const board = new Board(numRows, numCols, numShips);
+      board.attack(coords)
+      this.turns++;
+    }
     // TODO: Detemerine if the move is valid. If so, invoke the attack method on
     //     the board instance and increment this.turns by 1. If the game is over,
     //     display the final status of the game and end the game. If not, play
